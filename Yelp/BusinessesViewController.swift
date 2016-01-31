@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating{
 
     @IBOutlet weak var tableView: UITableView!
     var businesses: [Business]!
+    var filteredData: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         var searchController: UISearchController!
         
         searchController = UISearchController(searchResultsController: nil)
+    //    filteredData = Businesses.name
+        
+        
+        
 //        searchController.searchResultsUpdater = self
         
         tableView.delegate = self
@@ -58,6 +63,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 */
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,6 +89,16 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
         
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController){
+ /*     var search = Business.name
+        if let searchText = searchController.searchBar.text {
+            filteredData = searchText.isEmpty ? data : data.filter({(dataString: String) -> Bool in
+                return dataString.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+            })
+            
+            tableView.reloadData() */
     }
 
     /*
